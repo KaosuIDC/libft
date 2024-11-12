@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:56:12 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/12 15:45:32 by sudelory         ###   ########.fr       */
+/*   Created: 2024/11/12 15:51:41 by sudelory          #+#    #+#             */
+/*   Updated: 2024/11/12 15:59:04 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, size_t n)
+char	strnstr(const char *big, const char *little, size_t len)
 {
 	size_t i;
 
 	i = 0;
-	while (i < n)
-	{
-		s[i] = '\0';
-		i++;
-	}
-	return (*s);
 }

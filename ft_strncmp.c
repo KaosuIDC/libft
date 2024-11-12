@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 13:56:12 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/12 15:45:32 by sudelory         ###   ########.fr       */
+/*   Created: 2024/11/12 15:42:22 by sudelory          #+#    #+#             */
+/*   Updated: 2024/11/12 15:44:59 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_bzero(void *s, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while (i < n)
+	while ((s1[i] || s2[i]) && (i < n))
 	{
-		s[i] = '\0';
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i])
 		i++;
 	}
-	return (*s);
+	return (0);
 }
