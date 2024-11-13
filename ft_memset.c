@@ -6,19 +6,21 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:30:44 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/11 13:58:31 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:38:25 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
+	unsigned char *sr;
 
+	sr = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
-		s[i] = c;
+		sr[i] = (unsigned char)c;
 		i++;
 	}
-	return (*s);
+	return (s);
 }

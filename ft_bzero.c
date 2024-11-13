@@ -6,19 +6,23 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:56:12 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/12 15:45:32 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:11:07 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <string.h>
 
 void	ft_bzero(void *s, size_t n)
 {
 	size_t i;
+	char *s1;
+
+	s1 = (char *)s;
 
 	i = 0;
 	while (i < n)
 	{
-		s[i] = '\0';
+		s1[i] = '\0';
 		i++;
 	}
-	return (*s);
 }

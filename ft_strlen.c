@@ -6,9 +6,11 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:27:18 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/11 13:28:10 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/13 18:47:47 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t ft_strlen(const char *s)
 {
