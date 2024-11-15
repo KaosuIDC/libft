@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:58:50 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/13 18:47:19 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:24:27 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
-	unsigned	char	*d;
-	const	unsigned	char	*s;
+	size_t				i;
+	unsigned char		*d;
+	const unsigned char	*s;
 
 	d = (unsigned char *)dest;
 	s = (const unsigned char *)src;
@@ -29,15 +29,12 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		{
 			d[i] = s[i];
 			i++;
-		}	
+		}
 	}
 	else
 	{
-		while (n > 0)
-		{
-			n--;
+		while (n--)
 			d[n] = s[n];
-		}
 	}
 	return (dest);
 }

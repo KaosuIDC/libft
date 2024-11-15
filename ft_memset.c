@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:30:44 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/13 18:38:25 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/15 16:24:09 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t	i;
-	unsigned char *sr;
+	size_t			i;
+	unsigned char	*sr;
 
 	sr = (unsigned char *)s;
 	i = 0;

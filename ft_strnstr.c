@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 15:51:41 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/13 18:47:58 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/15 13:06:36 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	if (little[0] == '\0')
 		return ((char *)big);

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 12:59:09 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/15 16:24:39 by sudelory         ###   ########.fr       */
+/*   Created: 2024/11/15 14:38:26 by sudelory          #+#    #+#             */
+/*   Updated: 2024/11/15 16:30:34 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t				i;
-	const unsigned char	*point;
-	unsigned char		to_find;
+	char	*extract;
+	size_t	i;
 
 	i = 0;
-	point = (const unsigned char *)s;
-	to_find = (unsigned char)c;
-	while (i < n)
+	if (!s)
+		return (NULL);
+	extract = malloc(sizeof(char) * (len + 1));
+	if (!extract)
+		return (NULL);
+	while (i < len)
 	{
-		if (point[i] == to_find)
-			return ((void *)&point[i]);
+		extract[i] = s[start + i];
 		i++;
 	}
-	return (0);
+	extract[i] = '\0';
+	return (extract);
 }

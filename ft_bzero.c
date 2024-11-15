@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:56:12 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/13 18:11:07 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/15 12:58:21 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,10 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t i;
-	char *s1;
+	size_t	i;
+	char	*s1;
 
 	s1 = (char *)s;
-
 	i = 0;
 	while (i < n)
 	{
