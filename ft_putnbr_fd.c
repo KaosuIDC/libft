@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 14:38:26 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/18 13:35:29 by sudelory         ###   ########.fr       */
+/*   Created: 2024/11/18 13:08:41 by sudelory          #+#    #+#             */
+/*   Updated: 2024/11/18 13:37:28 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <limits.h>
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*extract;
-	size_t	i;
-	size_t	length;
-
-	i = 0;
-	if (!s)
-		return (NULL);
-	length = ft_strlen(s);
-	if (start >= length)
-		return (ft_strdup(""));
-	if (len > length - start)
-		len = length - start;
-	extract = malloc(sizeof(char) * (len + 1));
-	if (!extract)
-		return (NULL);
-	while (i < len)
+	if (n == INT_MIN)
 	{
-		extract[i] = s[start + i];
-		i++;
+		ft_putstr_fd("-2147483648", fd);
+		return ;
 	}
-	extract[i] = '\0';
-	return (extract);
+	if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n = -n;
+	}
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
+	}
+	else
+		ft_putchar_fd(n + '0', fd);
 }

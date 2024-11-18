@@ -5,85 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 13:47:26 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/15 16:30:15 by sudelory         ###   ########.fr       */
+/*   Created: 2024/11/18 13:44:38 by sudelory          #+#    #+#             */
+/*   Updated: 2024/11/18 14:00:47 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-int	ft_strlen(char *strs)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	int	len;
-
-	len = 0;
-	while (strs[len])
-		len++;
-	return (len);
-}
-
-char	*ft_newstr(int size, char **strs, char *sep)
-{
-	char	*dest;
-	int		i;
-	int		len;
+	size_t	i;
 
 	i = 0;
-	len = 0;
-	while (i != size)
+	while(src[i])
 	{
-		len = len + ft_strlen(strs[i]) + ft_strlen(sep);
+		dst[i] = src[i];
 		i++;
 	}
-	len -= ft_strlen(sep);
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (!(dest))
-		return (NULL);
-	dest[0] = 0;
-	return (dest);
+	dst[i] = '\0';
+	return (dst);
 }
 
-char	*ft_strcat(char *dest, char *sep)
+char	*ft_strcat(char *dst, const char *src)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
-	while (dest[i] != '\0')
+	while (dst[i])
 		i++;
-	while (sep[j])
+	while (src[j])
 	{
-		dest[i] = sep[j];
-		i++;
+		dst[i + j] = src[j];
 		j++;
 	}
-	dest[i] = '\0';
-	return (dest);
+	dst[i + j] = '\0';
+	return (dst);
 }
 
-char	*ft_strjoin(int size, char **strs, char *sep)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*dest;
-	int		i;
+	char	*newstr;
 
-	i = 0;
-	if (size <= 0)
-	{
-		dest = malloc(sizeof(char));
-		dest[0] = '\0';
-		return (dest);
-	}
-	dest = ft_newstr(size, strs, sep);
-	if (!dest)
+	newstr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!newstr)
 		return (NULL);
-	while (i < size)
-	{
-		ft_strcat(dest, strs[i]);
-		if (i < size - 1)
-			dest = ft_strcat(dest, sep);
-		i++;
-	}
-	return (dest);
+	ft_strcpy(newstr, s1);
+	ft_strcat(newstr, s2);
+	return (newstr);
 }
