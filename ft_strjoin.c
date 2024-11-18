@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:44:38 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/18 14:00:47 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/18 15:51:56 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strcpy(char *dst, const char *src)
 	size_t	i;
 
 	i = 0;
-	while(src[i])
+	while (src[i])
 	{
 		dst[i] = src[i];
 		i++;

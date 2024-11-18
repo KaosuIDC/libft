@@ -5,8 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 16:52:18 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/15 18:19:04 by sudelory         ###   ########.fr       */
+/*   Created: 2024/11/18 15:52:30 by sudelory          #+#    #+#             */
+/*   Updated: 2024/11/18 18:13:20 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <stdlib.h>
+
+void	*ft_calloc(size_t num, size_t size)
+{
+	
+}
