@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 13:00:05 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/15 16:29:30 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/19 13:23:19 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ char	**ft_split(char const *s, char c)
 	int		len;
 	int		i;
 
-	if (!s)
-		return (NULL);
 	len = ft_strlen(s);
 	buffer = malloc(sizeof(char *) * (len + 1));
+	if (!s || !buffer)
+		return (NULL);
 	start = 0;
 	end = 0;
 	i = 0;
