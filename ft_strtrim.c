@@ -6,47 +6,61 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:34:19 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/19 19:01:20 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/20 18:38:39 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	*str_begin(char *s1, char *to_trim)
+int	*str_begin(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
-	int		trim;
 
 	i = 0;
-	trim = 0;
+	j = 0;
 	while (s1[i])
 	{
-		j = 0;
-		while (to_trim[j])
+		while (set[j])
 		{
-			if (s1[i] == to_trim[j])
+			if (s1[i] == set[j])
 			{
-				trim++;
+				j = 0;
 				i++;
-				j -= 1;
 			}
-			j++;
+			else
+				j++;
 		}
-		if (to_trim[j] == '\0')
-			return (trim);
 	}
-	return (trim);
+	return (i);
 }
 
-int	*str_end(char *s1, char *to_trim)
+int	*str_end(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
-	int		trim;
+
+	i = ft_strlen(s1) - 1;
+	j = 0;
+	while (set[j] && i > 0)
+	{
+		if (s1[i] == set[j])
+		{
+			j = 0;
+			i--;
+		}
+		else
+			j++;
+	}
+	return (i);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	size_t	i;
+	size_t	j;
+	size_t	k;
+	char	*newstr;
+
 
 }
