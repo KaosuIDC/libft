@@ -1,19 +1,8 @@
-#include <stdlib.h>
-
-static int  get_num_len(int n)
-{
-	int len = (n <= 0) ? 1 : 0;
-	while (n)
-	{
-		len++;
-		n /= 10;
-	}
-	return len;
-}
+#include "libft.h"
 
 char    *ft_itoa(int n)
 {
-	int     len = get_num_len(n);
+	int     len = ft_strlen(n);
 	char    *str = (char *)malloc(len + 1);
 	unsigned int num = (n < 0) ? -n : n;
 
