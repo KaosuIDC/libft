@@ -19,7 +19,9 @@ char	*ft_strndup(const char *src, int n)
 
 	dest = malloc(n + 1);
 	if (!dest)
+	{
 		return (NULL);
+	}
 	i = 0;
 	while (src[i] && i < n)
 	{
