@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:34:19 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/20 18:38:39 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:52:40 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,15 @@ static int	str_begin(char const *s1, char const *set)
 
 	i = 0;
 	j = 0;
-	while (s1[i])
+	while (set[j])
 	{
-		while (set[j])
+		if (set[j] == s1[i])
 		{
-			if (s1[i] == set[j])
-			{
-				j = 0;
-				i++;
-			}
-			else
-				j++;
+			j = 0;
+			i++;
 		}
+		else
+			j++;
 	}
 	return (i);
 }
@@ -44,10 +41,10 @@ static int	str_end(char const *s1, char const *set)
 	j = 0;
 	while (set[j] && i > 0)
 	{
-		if (s1[i] == set[j])
+		if (set[j] == s1[i])
 		{
-			j = 0;
 			i--;
+			j = 0;
 		}
 		else
 			j++;

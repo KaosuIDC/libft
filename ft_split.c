@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 13:00:05 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/19 13:23:19 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:40:12 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static char	*ft_strndup(const char *src, int n)
 	int		i;
 	char	*dest;
 
-	dest = malloc(n + 1);
+	dest = ft_calloc(sizeof(char), (n + 1));
 	if (!dest)
 	{
 		return (NULL);
@@ -28,7 +28,6 @@ static char	*ft_strndup(const char *src, int n)
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
 	return (dest);
 }
 
@@ -42,7 +41,7 @@ char	**ft_split(char const *s, char c)
 
 	len = ft_strlen(s);
 	buffer = malloc(sizeof(char *) * (len + 1));
-	if (!s || !buffer)
+	if (!buffer || !s)
 		return (NULL);
 	start = 0;
 	end = 0;
@@ -57,6 +56,6 @@ char	**ft_split(char const *s, char c)
 		}
 		end += 1;
 	}
-	buffer[i] = 0;
+	buffer[i] = NULL;
 	return (buffer);
 }
