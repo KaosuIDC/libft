@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "limits.h"
 
 static int	get_len(int n)
 {
@@ -30,6 +31,27 @@ static int	get_len(int n)
 	return (i);
 }
 
+static char	*if_int_min(void)
+{
+	char	*str;
+	char	*int_min;
+	int		i;
+
+	i = 0;
+	int_min = "-2147483648";
+	str = malloc(12);
+	if (!str)
+		return (NULL);
+	while (int_min[i])
+	{
+		str[i] = int_min[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+
 char	*ft_itoa(int n)
 {
 	char				*str;
@@ -41,8 +63,8 @@ char	*ft_itoa(int n)
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	if (n == -2147483648)
-		return (str = "-2147483648");
+	if (n == INT_MIN)
+		return (if_int_min());
 	if (n < 0)
 	{
 		n = -n;

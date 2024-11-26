@@ -31,6 +31,27 @@ static char	*ft_strndup(const char *src, int n)
 	return (dest);
 }
 
+static int count_substrings(const char *s, char c)
+{
+    int count = 0;
+    int in_substring = 0;
+
+    while (*s)
+    {
+        if (*s != c && !in_substring)
+        {
+            in_substring = 1;
+            count++;
+        }
+        else if (*s == c)
+        {
+            in_substring = 0;
+        }
+        s++;
+    }
+    return count;
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**buffer;
@@ -39,16 +60,16 @@ char	**ft_split(char const *s, char c)
 	int		len;
 	int		i;
 
-	len = ft_strlen(s);
+	len = count_substrings(s, c);
 	buffer = malloc(sizeof(char *) * (len + 1));
 	if (!buffer || !s)
 		return (NULL);
 	start = 0;
 	end = 0;
 	i = 0;
-	while (end <= len)
+	while (s[end])
 	{
-		if (s[end] == 0 || s[end] == c)
+		if (s[end] == c)
 		{
 			if (end > start)
 				buffer[i++] = ft_strndup(s + start, end - start);
