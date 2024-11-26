@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 13:00:05 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 18:40:12 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/26 20:10:25 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,27 @@ static char	*ft_strndup(const char *src, int n)
 	return (dest);
 }
 
-static int count_substrings(const char *s, char c)
+static int	count_substrings(const char *s, char c)
 {
-    int count = 0;
-    int in_substring = 0;
+	int	count;
+	int	in_substring;
 
-    while (*s)
-    {
-        if (*s != c && !in_substring)
-        {
-            in_substring = 1;
-            count++;
-        }
-        else if (*s == c)
-        {
-            in_substring = 0;
-        }
-        s++;
-    }
-    return count;
+	count = 0;
+	in_substring = 0;
+	while (*s)
+	{
+		if (*s != c && !in_substring)
+		{
+			in_substring = 1;
+			count++;
+		}
+		else if (*s == c)
+		{
+			in_substring = 0;
+		}
+		s++;
+	}
+	return (count);
 }
 
 char	**ft_split(char const *s, char c)
@@ -57,11 +59,9 @@ char	**ft_split(char const *s, char c)
 	char	**buffer;
 	int		start;
 	int		end;
-	int		len;
 	int		i;
 
-	len = count_substrings(s, c);
-	buffer = malloc(sizeof(char *) * (len + 1));
+	buffer = ft_calloc(sizeof(char *), (count_substrings(s, c) + 1));
 	if (!buffer || !s)
 		return (NULL);
 	start = 0;
@@ -77,6 +77,7 @@ char	**ft_split(char const *s, char c)
 		}
 		end += 1;
 	}
-	buffer[i] = NULL;
+	if (end > start)
+		buffer[i++] = ft_strndup(s + start, end - start);
 	return (buffer);
 }

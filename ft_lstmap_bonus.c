@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:02:42 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 14:03:31 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:37:30 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_l;
 	t_list	*new_o;
+	t_list	*stock;
 
 	if (!lst || !f || !del)
 		return (NULL);
 	new_l = NULL;
 	while (lst)
 	{
-		new_o = ft_lstnew(f(lst->content));
+		stock = f(lst->content);
+		new_o = ft_lstnew(stock);
 		if (!new_o)
 		{
+			del(stock);
 			ft_lstclear(&new_l, del);
 			return (NULL);
 		}

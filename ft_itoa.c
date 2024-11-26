@@ -6,12 +6,12 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 17:00:29 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 18:22:03 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:35:41 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "limits.h"
+#include <limits.h>
 
 static int	get_len(int n)
 {
@@ -33,42 +33,62 @@ static int	get_len(int n)
 
 static char	*if_int_min(void)
 {
-	char	*str;
-	char	*int_min;
 	int		i;
+	char	*for_min;
+	char	*to_copy;
 
 	i = 0;
-	int_min = "-2147483648";
-	str = malloc(12);
-	if (!str)
+	to_copy = "-2147483648";
+	for_min = malloc(12);
+	if (!for_min)
 		return (NULL);
-	while (int_min[i])
+	while (to_copy[i])
 	{
-		str[i] = int_min[i];
+		for_min[i] = to_copy[i];
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	for_min[i] = '\0';
+	return (for_min);
 }
 
+static char	*if_inf_to_zero(int n)
+{
+	char			*str;
+	unsigned int	len;
+
+	len = get_len(n);
+	str = malloc (sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	n = -n;
+	str[len] = '\0';
+	while (len--)
+	{
+		str[len] = n % 10 + '0';
+		n /= 10;
+	}
+	str[0] = '-';
+	return (str);
+}
 
 char	*ft_itoa(int n)
 {
 	char				*str;
 	unsigned int		len;
-	int					negative;
 
-	negative = 0;
 	len = get_len(n);
 	str = malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
 	if (n == INT_MIN)
+	{
+		free(str);
 		return (if_int_min());
+	}
 	if (n < 0)
 	{
-		n = -n;
-		negative = 1;
+		free(str);
+		return (if_inf_to_zero(n));
 	}
 	str[len] = '\0';
 	while (len--)
@@ -76,7 +96,5 @@ char	*ft_itoa(int n)
 		str[len] = n % 10 + '0';
 		n /= 10;
 	}
-	if (negative)
-		str[0] = '-';
 	return (str);
 }
