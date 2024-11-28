@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:29:47 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/26 16:22:19 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 01:06:20 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
 
 typedef struct s_list
 {

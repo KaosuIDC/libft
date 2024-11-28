@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:02:33 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 14:02:34 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 02:20:38 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	del(lst->content);
+	if (lst && del)
+		del(lst->content);
 	free(lst);
 }

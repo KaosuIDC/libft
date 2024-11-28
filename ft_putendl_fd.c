@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:33:09 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 14:11:45 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 01:40:29 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,7 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	int	i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+	if (s)
+		ft_putstr_fd(s, fd);
 	write(fd, "\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:44:38 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/18 15:51:56 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 01:57:15 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*ft_strcpy(char *dst, const char *src)
 	return (dst);
 }
 
-char	*ft_strcat(char *dst, const char *src)
+static char	*ft_strcat(char *dst, const char *src)
 {
 	size_t	i;
 	size_t	j;
@@ -48,7 +48,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*newstr;
 
-	newstr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!s1 || !s2)
+		return (NULL);
+	newstr = ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, sizeof(char));
 	if (!newstr)
 		return (NULL);
 	ft_strcpy(newstr, s1);

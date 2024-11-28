@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 14:38:26 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/18 13:35:29 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 02:01:05 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	if (len > length - start)
 		len = length - start;
-	extract = malloc(sizeof(char) * (len + 1));
+	extract = ft_calloc(len + 1, sizeof(char));
 	if (!extract)
 		return (NULL);
 	while (i < len)
@@ -34,6 +34,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		extract[i] = s[start + i];
 		i++;
 	}
-	extract[i] = '\0';
 	return (extract);
 }

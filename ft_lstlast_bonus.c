@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:02:38 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 14:02:39 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 02:28:31 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*temp;
-
-	if (!lst)
-		return (NULL);
-	temp = lst;
-	while (temp->next)
-		temp = temp->next;
-	return (temp);
+	while (lst)
+	{
+		if (!(lst->next))
+			return (lst);
+		lst = lst->next;
+	}
+	return (NULL);
 }

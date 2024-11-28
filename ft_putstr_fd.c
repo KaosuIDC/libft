@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:31:21 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 14:11:33 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 01:42:11 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int	i;
-
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+	if (s)
+		write(fd, s, ft_strlen(s));
 }

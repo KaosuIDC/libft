@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:02:46 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 14:04:20 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 02:07:05 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new;
 
-	new = malloc(sizeof(t_list));
+	new = ft_calloc(1, sizeof(t_list));
 	if (!new)
 		return (NULL);
 	new->content = content;

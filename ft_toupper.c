@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:33:54 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/15 13:07:08 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 02:21:34 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-	{
 		c -= 32;
-		return (c);
-	}
-	else
-		return (c);
+	return (c);
 }

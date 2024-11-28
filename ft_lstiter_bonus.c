@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:02:36 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 14:02:36 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 02:20:40 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*temp;
-
-	temp = lst;
-	while (temp)
+	while (lst)
 	{
-		f(temp->content);
-		temp = temp->next;
+		f(lst->content);
+		lst = lst->next;
 	}
 }

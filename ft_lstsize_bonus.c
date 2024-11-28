@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 14:02:50 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 14:04:51 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 05:40:23 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	t_list	*temp;
-	int		i;
+	int	i;
 
-	temp = lst;
 	i = 0;
-	while (temp)
+	while (lst)
 	{
-		temp = temp->next;
+		lst = lst->next;
 		i++;
 	}
 	return (i);

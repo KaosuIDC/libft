@@ -1,7 +1,3 @@
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-NAME = libft.a
 SRCS =	ft_isalpha.c\
 		ft_isdigit.c\
 		ft_isalnum.c\
@@ -37,7 +33,7 @@ SRCS =	ft_isalpha.c\
 		ft_putnbr_fd.c\
 		ft_strmapi.c\
 		ft_striteri.c\
-		ft_itoa.c\
+		ft_itoa.c
 		
 BONUS = ft_lstnew_bonus.c\
 		ft_lstadd_front_bonus.c\
@@ -47,26 +43,28 @@ BONUS = ft_lstnew_bonus.c\
 		ft_lstdelone_bonus.c\
 		ft_lstclear_bonus.c\
 		ft_lstiter_bonus.c\
-		ft_lstmap_bonus.c\
+		ft_lstmap_bonus.c
 
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+NAME = libft.a
 OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS:.c=.o)
 HEADER = libft.h
-
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-BONUS_OBJS = $(BONUS:.c=.o)
+%.o: %.c $(HEADER) Makefile
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 bonus: $(BONUS_OBJS)
-	$(AR) $(NAME) $(BONUS_OBJS)
+	@$(MAKE) --no-print-directory OBJS="$(BONUS_OBJS)"
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)

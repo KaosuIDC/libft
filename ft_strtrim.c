@@ -6,7 +6,7 @@
 /*   By: sudelory <sudelory@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 13:34:19 by sudelory          #+#    #+#             */
-/*   Updated: 2024/11/25 16:52:40 by sudelory         ###   ########.fr       */
+/*   Updated: 2024/11/28 02:05:57 by sudelory         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	i = str_begin(s1, set);
 	j = str_end(s1, set) + 1;
 	if (i == ft_strlen(s1))
-		newstr = malloc (1);
+		newstr = malloc(1);
 	else
-		newstr = malloc ((j - i) + 1);
+		newstr = malloc((j - i) + 1);
 	if (!newstr)
 		return (NULL);
 	i2 = 0;
